@@ -232,7 +232,7 @@ def build():
     draw.line([(0, footer_y), (W, footer_y)], fill=BORDER, width=3)
 
     draw.text((PAD, footer_y + 30),
-              "Dibuat oleh: Kemal Ardian  |  HIMAKOM - Politeknik Negeri Bandung  |  2026",
+              "Dibuat oleh: Muhammad Fatih Izzul Haq  |  HIMAKOM - Politeknik Negeri Bandung  |  2026",
               font=F_SMALL, fill=MUTED)
     draw.text((PAD, footer_y + 100),
               "Sumber: GitHub 2024 | LinkedIn 2024 | Kominfo 2024 | WEF 2023",

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-bg-secondary min-h-screen text-text-primary selection:bg-text-primary selection:text-bg-secondary">
     <Navigation />
     <NuxtPage />
   </div>
@@ -16,4 +16,7 @@ onMounted(async () => {
 
 <style>
 /* Global styles are in assets/css/main.css */
+body {
+  background-color: #ffffff;
+}
 </style>

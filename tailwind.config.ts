@@ -13,23 +13,23 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#22c55e',        // Terminal Green
-        secondary: '#3b82f6',      // Blue accent
-        accent: '#f59e0b',         // Yellow accent
-        'bg-primary': '#1A1A1A',   // Very dark theme background
-        'bg-secondary': '#000000', // Black card backgrounds
-        'bg-tertiary': '#111827',  // Alternative dark background
-        'text-primary': '#ffffff', // White text
-        'text-secondary': '#9ca3af', // Gray text
-        'text-muted': '#6b7280',   // Darker gray text
-        border: '#1f2937',         // Dark gray borders
-        success: '#22c55e',        // Green 500
-        warning: '#f59e0b',        // Amber 500
-        error: '#ef4444',          // Red 500
+        primary: '#000000',        // Black primary
+        secondary: '#666666',      // Gray secondary
+        accent: '#ff0000',         // Red accent
+        'bg-primary': '#f4f4f0',   // Off-white background
+        'bg-secondary': '#ffffff', // Clean white
+        'bg-tertiary': '#e5e5e5',  // Light gray
+        'text-primary': '#000000', // Solid black text
+        'text-secondary': '#333333', // Dark gray text
+        'text-muted': '#888888',   // Medium gray text
+        border: '#000000',         // Hard blocky borders
+        success: '#22c55e',
+        warning: '#f59e0b',
+        error: '#ef4444',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        sans: ['Helvetica', 'Arial', 'sans-serif'],
+        mono: ['Courier New', 'monospace'],
       },
       backdropBlur: {
         xs: '2px',

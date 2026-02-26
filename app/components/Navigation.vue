@@ -1,38 +1,37 @@
 <template>
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-[#1A1A1A]/95 backdrop-blur-md border-b border-[#333333] font-mono">
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-bg-secondary/90 font-sans border-b border-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
         <!-- Logo -->
         <NuxtLink to="/" class="flex items-center group">
-          <span class="text-text-primary font-bold text-xl group-hover:text-primary transition-colors">
-            ~/{{ ((profile?.name || 'Portfolio').split(' ')[0] || 'portfolio').toLowerCase() }}
+          <span class="text-text-primary font-bold text-2xl uppercase tracking-tighter">
+            {{ ((profile?.name || 'Portfolio').split(' ')[0] || 'portfolio') }}
           </span>
         </NuxtLink>
 
         <!-- Desktop Navigation -->
-        <div class="hidden md:flex items-center space-x-1">
+        <div class="hidden md:flex items-center space-x-6">
           <NuxtLink
             v-for="link in navLinks"
             :key="link.path"
             :to="link.path"
-            class="px-4 py-2 text-text-secondary hover:text-primary transition-all relative group text-sm"
-            active-class="text-primary font-bold"
+            class="text-text-primary hover:text-text-muted transition-colors text-sm font-bold uppercase tracking-widest"
+            active-class="underline decoration-2 underline-offset-4"
           >
-            <span class="mr-1 opacity-50">$</span>{{ link.name.toLowerCase() }}
-            <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-300" />
+            {{ link.name }}
           </NuxtLink>
         </div>
 
         <!-- Mobile Menu Button -->
         <button
           @click="mobileMenuOpen = !mobileMenuOpen"
-          class="md:hidden p-2 rounded-lg text-text-primary hover:bg-white/5 transition-all"
+          class="md:hidden p-2 text-text-primary"
         >
-          <svg v-if="!mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          <svg v-if="!mobileMenuOpen" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" />
           </svg>
-          <svg v-else class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          <svg v-else class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
           </svg>
         </button>
       </div>
@@ -41,21 +40,21 @@
     <!-- Mobile Menu -->
     <Transition
       enter-active-class="transition-all duration-300"
-      enter-from-class="opacity-0 -translate-y-4"
-      enter-to-class="opacity-100 translate-y-0"
+      enter-from-class="opacity-0"
+      enter-to-class="opacity-100"
       leave-active-class="transition-all duration-200"
-      leave-from-class="opacity-100 translate-y-0"
-      leave-to-class="opacity-0 -translate-y-4"
+      leave-from-class="opacity-100"
+      leave-to-class="opacity-0"
     >
-      <div v-if="mobileMenuOpen" class="md:hidden border-t border-white/10 bg-bg-secondary/95 backdrop-blur-lg">
-        <div class="px-4 py-4 space-y-2">
+      <div v-if="mobileMenuOpen" class="md:hidden bg-bg-secondary w-full h-screen fixed top-16 left-0">
+        <div class="flex flex-col p-8 space-y-6">
           <NuxtLink
             v-for="link in navLinks"
             :key="link.path"
             :to="link.path"
             @click="mobileMenuOpen = false"
-            class="block px-4 py-3 rounded-lg text-text-secondary hover:text-text-primary hover:bg-white/5 transition-all"
-            active-class="text-primary bg-white/10"
+            class="text-4xl font-bold text-text-primary uppercase tracking-tighter"
+            active-class="underline decoration-4 underline-offset-8"
           >
             {{ link.name }}
           </NuxtLink>
@@ -64,7 +63,6 @@
     </Transition>
   </nav>
 
-  <!-- Spacer to prevent content from going under fixed nav -->
   <div class="h-16" />
 </template>
 
@@ -79,7 +77,6 @@ const navLinks = [
   { name: 'Contact', path: '/contact' },
 ]
 
-// Close mobile menu on route change
 const route = useRoute()
 const { profile } = useConfig()
 
